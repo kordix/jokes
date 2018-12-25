@@ -30,6 +30,8 @@ Route::get('/edit/{id}', 'jokeController@edit')->name('edit');
 Route::patch('/update/{id}', 'jokeController@update')->name('update');
 Route::delete('/delete/{id}', function (Joke $joke, $id) {
     $joke::find($id)->delete();
+    session()->flash('message', 'usunięto joke');
+    return redirect()->route('index');
 })->name('delete');
 
 
