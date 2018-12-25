@@ -44,7 +44,7 @@
     <label for="oldnew">Magiel:</label>
     <select value="" name="magiel">
         <option value="0">Nie</option>
-        <option value="1">Tak</option>
+        <option value="1" selected>Tak</option>
     </select>
 
     <input style="margin-top:10px" class="form-control" type="text" name="tag" placeholder="status(opcjonalne)">

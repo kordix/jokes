@@ -40,6 +40,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        <li><b><a class="nav-link" href="{{route('create')}}">Dodaj</a></b></li>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -72,9 +73,11 @@
         </nav>
 
         <main class="py-4">
+            <div class="container">
             @if($flash=session('message'))
     <div class="alert alert-success">{{$flash}}</div>
     @endif
+    </div>
             @yield('content')
         </main>
     </div>

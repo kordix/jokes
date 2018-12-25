@@ -13,7 +13,9 @@ use App\Joke;
 */
 
 Route::get('/', 'jokeController@index')->name('index');
-Route::get('/index/{param}', 'jokeController@indexage')->name('indexage');
+Route::get('/index', 'jokeController@index')->name('index');
+Route::get('/index/{param}', 'jokeController@index')->name('index');
+Route::get('/indexage/{param}', 'jokeController@indexage')->name('indexage');
 
 
 Auth::routes();

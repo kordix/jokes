@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-<div class="form-group col-md-6">
+<div class="form-group col-md-8">
     <label for="">Edytuj kawał id {{$joke->id}}</label>
     <form action="{{route('update', $joke->id)}}" method="POST">
         {{csrf_field()}}
@@ -35,12 +35,12 @@
     <label for="oldnew">Magiel:</label>
     <select value="" name="magiel">
         <option value="0">Nie</option>
-        <option value="1">Tak</option>
+        <option value="1" @if($joke->magiel==1) selected @endif>Tak</option>
     </select>
 
     <select name="tagid" id="">
         @foreach($tags as $tag)
-            <option value="{{$tag->id}}">{{$tag->title}}</option>
+            <option value="{{$tag->id}}" @if($joke->tag_id==$tag->id)selected @endif>{{$tag->title}}</option>
         @endforeach
     </select>
     <br>

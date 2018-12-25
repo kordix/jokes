@@ -17,11 +17,11 @@ class jokeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($param = 0)
     {
         $ages = Age::all();
 
-        $agesgroups = Joke::all()->sortBy('age_id')->groupBy('age_id');
+        $agesgroups = Joke::all()->where('magiel', '=', $param)->sortBy('age_id')->groupBy('age_id');
 
         foreach ($agesgroups as $agegroup) {
             $grouped[] =  $agegroup->sortByDesc('vulgar_id')->groupBy('vulgar_id');
@@ -96,6 +96,7 @@ class jokeController extends Controller
             'status'=>request('status', '-'),
             'magiel'=>request('magiel')
         ]);
+        session()->flash('message', 'dodano joke');
         return back();
     }
 
@@ -108,10 +109,11 @@ class jokeController extends Controller
             'jokecontent'=>request('content'),
             'category_id'=>request('category_id'),
             'age_id'=>request('ageid'),
+            'tag_id'=>request('tagid'),
             'vulgar_id'=>request('vulgar_id'),
             'status'=>request('status', '-'),
             'magiel'=>request('magiel')
-            
+
         ]);
 
         session()->flash('message', 'zapisano zmiany');
