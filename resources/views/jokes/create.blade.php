@@ -8,9 +8,9 @@
     <input class="form-control" name="title" type="text" required>
     <label for="content">Treść (opcjonalnie)</label>
     <textarea class="form-control" style="margin-bottom:10px" name="content" type="text" requierd></textarea>
-    <label for="category">Kategoria</label>
-    <select name="category" id="">
-        <option value="-">brak</option>
+    {{-- <label for="category">Kategoria</label> --}}
+    {{-- <select name="category" id="" style="display:hidden">
+        <option value="-" selected>brak</option>
         <option value="racist">rasistowskie</option>
         <option value="chauvinist">szowinistyczne</option>
         <option value="coarse">chamskie</option>
@@ -21,8 +21,7 @@
         <option value="dry">suchary</option>
         <option value="tekst">teksty</option>
         <option value="stories">historyjki</option>
-        <option value="magiel">magiel</option>
-    </select>
+    </select> --}}
     <label for="oldnew">Wiek</label>
     <select value="" name="oldnew">
         <option name="" id="" value="new" selected>Nowe</option>
@@ -35,13 +34,19 @@
         <option name="" id="" value="no">Tak</option>
         <option name="" id="" value="middle">Średnio</option>
     </select>
-
+<label for="tagid">Kategoria</label>
     <select name="tagid" id="">
         @foreach($tags as $tag)
             <option value="{{$tag->id}}">{{$tag->title}}</option>
         @endforeach
     </select>
     <br>
+    <label for="oldnew">Magiel:</label>
+    <select value="" name="magiel">
+        <option value="0">Nie</option>
+        <option value="1">Tak</option>
+    </select>
+
     <input style="margin-top:10px" class="form-control" type="text" name="tag" placeholder="status(opcjonalne)">
     <br>
     <button class="btn btn-primary" type="submit">Zapisz</button>

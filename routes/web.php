@@ -13,6 +13,8 @@ use App\Joke;
 */
 
 Route::get('/', 'jokeController@index')->name('index');
+Route::get('/index/{param}', 'jokeController@indexage')->name('indexage');
+
 
 Auth::routes();
 
@@ -27,6 +29,8 @@ Route::patch('/update/{id}', 'jokeController@update')->name('update');
 Route::delete('/delete/{id}', function (Joke $joke, $id) {
     $joke::find($id)->delete();
 })->name('delete');
+
+
 
 
 Auth::routes();

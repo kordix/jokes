@@ -32,6 +32,12 @@
         @endforeach
     </select>
 
+    <label for="oldnew">Magiel:</label>
+    <select value="" name="magiel">
+        <option value="0">Nie</option>
+        <option value="1">Tak</option>
+    </select>
+
     <select name="tagid" id="">
         @foreach($tags as $tag)
             <option value="{{$tag->id}}">{{$tag->title}}</option>

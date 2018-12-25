@@ -50,6 +50,11 @@ class jokeController extends Controller
         return view('jokes.index2', compact('jokes', 'jokesnew', 'jokesaverage', 'jokesold', 'jokess', 'tags', 'ages', 'grouped', 'ageclass', 'nazwyepok', 'vulgartitles'));
     }
 
+    public function indexage($param)
+    {
+        dd($param);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -85,10 +90,11 @@ class jokeController extends Controller
         Joke::create([
             'title'=>request('title'),
             'jokecontent'=>request('content'),
-            'category_id'=>request('category_id'),
+            'category_id'=>'-',
             'oldnew'=>request('oldnew'),
             'vulgar'=>request('vulgar'),
-            'status'=>request('status', '-')
+            'status'=>request('status', '-'),
+            'magiel'=>request('magiel')
         ]);
         return back();
     }
@@ -103,7 +109,9 @@ class jokeController extends Controller
             'category_id'=>request('category_id'),
             'age_id'=>request('ageid'),
             'vulgar_id'=>request('vulgar_id'),
-            'status'=>request('status', '-')
+            'status'=>request('status', '-'),
+            'magiel'=>request('magiel')
+            
         ]);
 
         session()->flash('message', 'zapisano zmiany');

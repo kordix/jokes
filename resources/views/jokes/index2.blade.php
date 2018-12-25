@@ -13,6 +13,7 @@
 </div>
 
 
+
 {{-- @foreach($ages as $age)
     <h4>{{$age->title}}</h4>
     @foreach($age->jokes as $joke)
@@ -28,9 +29,11 @@
 @endforeach --}}
 
 @foreach($grouped as $indexKey => $groupe)
-    <br> {{$nazwyepok[$indexKey]}}
+    <br>
+    {{$nazwyepok[$indexKey]}}
     @foreach($groupe as $indexKey2 => $group)
-        <br>{{$vulgartitles[$indexKey2-1]}}
+        <br>
+        {{-- {{$vulgartitles[$indexKey2-1]}} --}}
         @foreach($group as $grou)
             <a href="{{route('edit', $grou->id)}}"><span class="badge @switch($grou->vulgar_id) @case(1) badge-danger @break @case(2) badge-warning @break @case(3)badge-info @break @endswitch   " style="font-size:14px">{{$grou->title}}</span></a>
 
@@ -44,13 +47,6 @@
 
 
 
-
-<div class="panel panel-warning">
-
-    <div class="panel-heading">fsaddfasfdfdsdffdsfads</div>
-    <div class="panel-body"> fdsafdsfdsffd </div>
-    <button class="btn btn-danger">fdsaf</button>
-</div>
 </div>
 
 
